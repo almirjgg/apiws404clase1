@@ -1,0 +1,139 @@
+Varias redes
+
+Telefonia digital S7
+IP
+
+
+7 Capas
+
+arriba de HTTP va a venir SOAP XML / REST JSON
+session presentacion aplicacion HTTP (deviene el nombre de web).
+transporte (TCP/UDP/RTP) Nos vamos a focalizar en tcp
+red (IP)
+Enlace
+Fisica
+
+HTTP tiene verbos
+
+GET
+POST
+PUT
+DELETE
+
+GET - SELECT - CONSULTA
+POST - INSERT - AGREGAR
+PUT - UPDATE - MODIFICAR
+DELETE - DELETE - BORRAR
+
+Servidores HTTP
+
+Apache
+nginx
+Internet Information Services (Microsoft)
+
+Tipicas respuestas son:
+
+HTTP del 200 al 300 casos de exito.
+HTTP del 300 al 400 casos donde el cliente debe hacer cambios.
+HTTP del 400 al 500 es el cliente que tiene algun error
+HTTP del 500 al 600 errores del lado del servidor
+HTTP del 600 en adelante errores creados por los usuarios.
+
+https://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP
+
+El encoding que mas se utiliza es UTF-8 porque es muy versatil.
+Contiene caracteres en multiples idiomas.
+
+Que es soap: es un protocolo basado en XML para enviar/recibir mensajes.
+
+a diferencia de rest, este protocolo propone un contrato, entre el cliente y
+servidor. ese contrato se denomina WSDL.
+
+Web Service description Language.
+
+Una cosa a aclarar es que los servicios web son como la programacion procedural.
+
+Formatos:
+
+Formato XML
+
+Almacenar documentos con formato libre:
+
+<Ciudad>
+   <nombre>Bolivar</nombre>
+   <cantHab>1000000</cantHab>
+   <pais>Venezuela</pais>
+   <calles>
+      <calle>
+         <nombre>Procederes</nombre>
+         <distritos>
+             <numero nro="3"></numero>
+             <numero nro="5"></numero>
+             <numero nro="6"></numero>
+         </distritos>
+      </calle>
+      <calle>Libertador</calle>
+      <calle>Guzman Blanco</calle>
+   </calles>
+</Ciudad>
+
+Si tuviera que poner esto en una base de datos necesito:
+
+Ciudad           Calles
+
+idCiudad         idDeCalle pero ademas un idCiudad
+
+Formato JSON (Javascript Object Notation)
+
+{
+   "Ciudad": {
+      "nombre": "Bolivar",
+      "cantHab": 10000000,
+      "calles": [{
+          "nombre": "Procederes",
+	  "Distritos": [3, 5, 6]
+      },
+      {
+          "nombre": "Libertador",
+	  "Distritos": [5, 6]
+      }]
+   }
+}
+
+REST Aplicacion encuentros
+
+VERBO HTTP /encuentros
+VERBO HTTP /usuario
+VERBO HTTP /suscripcion
+
+POST     /encuentro      y le paso informacion del usuario
+GET      /encuentro      todos los encuentros que existan
+GET      /encuentro/id   informacion del encuentro que tenga ese id
+GET      /encuentro/?nombre=".net"
+PUT      /encuentro/id   informacion para actualizar
+DELETE   /encuentro/id
+
+Usuarios es identico
+
+GET      /suscripcion     un documento con encuentros y dentro con los usuarios
+
+Recordar que la suscripcion tambien tiene un id.
+
+Se utilizan ids del tipo UUID o GUID.
+https://tools.ietf.org/html/rfc4122
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
